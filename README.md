@@ -7,3 +7,4 @@ Currently adding in media queries for responsive design. Responsive layout for m
 
 
 ** Update 1 - Added responsive layout for iPad
+** Update 2 - Added responsive layout for mobile
