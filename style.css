@@ -6,7 +6,7 @@
 
 body{
     display: flex; justify-content: center; align-items: center;  min-height:100vh;
-    background: linear-gradient(#ca0e3a, #5c3ce0) no-repeat; 
+    background-color: #171717;
     font-family: 'Krub', sans-serif;
 }
 
@@ -22,23 +22,23 @@ body{
     background: url('https://i.pinimg.com/564x/b0/42/3a/b0423a16c86bfe01c059005ff002914f.jpg'); background-position: center;
     background-repeat: no-repeat; background-size: cover;
     box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
-    overflow: hidden; animation: fadeInDown 3s;
+    overflow: hidden; animation: none;
 }
 
 .profile-card::before{
-    content: 'JALEEL BENNETT';
+    content: '';
     position: absolute; left: 4.4rem; margin-top: 1rem;
-    width: 20rem; height: 35rem;
     color: white; font-size: 1.5rem;
 }
 
 .links{
-    position: absolute; bottom: 8rem; margin-left: 1rem;
+    position: absolute; bottom: 11rem; margin-left: 1rem;
     display: flex; flex-direction: column; gap: 2rem;
-    width: 1rem; height: 3rem;
+    width: 1rem; height: 5rem;
+    animation: fadeIn 5s;
 }
 
-.links a{ color: white; }
+.links a{ color: crimson; }
 
 .about-me{
     position: absolute;
@@ -50,22 +50,36 @@ body{
 .info{
     position: absolute; top: 2.5rem; right: 3rem;
     width: 25rem; height: 20rem;
-    font-size: 1rem; 
-    animation: fadeIn 4s ease-in;
+    font-size: 1rem;  color: #000;
+    animation: fadeIn 3s ease-in;
 }
 
 .info::before{
-    content:'"';
-    color:#ca0e3a; 
-    font-size: 30px;
-    animation: fadeIn 4s ease-in;
+    content:'ABOUT ME';
+    color:#ca0e3a; font-size:20px;
+    animation: fadeIn 3s ease-in;
 }
 .info::after{
-    content:'"';
+    content:'- JALEEL BENNETT';
     position: absolute; right: 0;
-    color: #5c3ce0; font-size: 30px;
-    animation: fadeIn 4s ease-in;
+    color: #5c3ce0; font-size: 20px;
+    animation: fadeIn 3s ease-in;
 }
+
+.close-button{
+    position: absolute; right: 1.5rem; top: 0.5rem;
+    display: none;
+}
+
+#bar1,#bar2{
+    position: absolute; width: 2px; height: 30px;
+    background-color: #151515; 
+}
+
+#bar1{ transform: rotate(45deg); }
+#bar2{ transform: rotate(-45deg); }
+
+/* Animations */
 
 @keyframes mymove {
     from {left: 0;}
@@ -87,3 +101,35 @@ body{
        transform: translateY(0);
     }
  } 
+
+ /* Media Queries */
+ @media only screen and (min-width: 768px) and (max-width: 1024px){
+    
+    .profile-card{ 
+        position: absolute; left: 13.5rem;
+        width: 25rem; height: 35rem;
+        z-index: 1;  animation: none;
+    } 
+    
+    .about-me{ 
+        position: absolute; width: 25rem; height: 35rem; 
+        animation: none; z-index: -1;
+    }
+
+    .info{
+        position:absolute; left: 2.5rem; right: 1.5rem; top: 5rem;
+        width:20rem; height: 27rem; display: grid; place-items: center;
+        font-size: 16px;
+    }
+
+    .about-me::before{
+        content:'ABOUT ME'; position: absolute; 
+        left: 2.5rem; right: 1.5rem; top: 4rem;
+        color: crimson; font-size: large; font-weight: 600;
+    }
+
+    .close-button{display: block;}
+
+    .info::before,.info::after{display: none;}
+    
+ }
