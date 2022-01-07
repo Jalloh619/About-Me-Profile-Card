@@ -4,6 +4,6 @@ $(document).ready(function(){
         function(){$(this).removeClass('fa-3x');}
     );
 
-    $('.fa-book').click(() => { $('.profile-card').css("display", "none"); })
-    $('#ba1,#bar2').click(() => { $('.profile-card').css("display", "block"); })
+    $('.fa-book').click(() => { $('.profile-card').css("z-index", "-1"); })
+    $('.close-button').click(() => { $('.profile-card').css("z-index", "1"); })
 });
